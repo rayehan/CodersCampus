@@ -8,15 +8,15 @@ public class RandomNumber {
 		int random_int = (int) Math.floor(Math.random() * (max_num - min_num + 1) + min_num);
 		//		System.out.println(random_int);
 
-		System.out.println("What is your guess? ");
+		System.out.println("What is your first guess? ");
 		Scanner user_scanner = new Scanner(System.in); // accept input from user
 		String user_input = user_scanner.nextLine();
 		int input = Integer.parseInt(user_input); // convert string to integer
 
-		int count = 1;
-		while (count <= 5) {
+		int count = 5;
+		while (count >= 0) {
 			if (random_int != input) {
-				System.out.println("Try again, but remember you only have four tries left! ");
+				System.out.printf("Try again, but remember you only have %d tries left! ", count).println();
 
 				System.out.println("What is your next guess? ");
 				user_scanner = new Scanner(System.in); // accept input from user
@@ -25,10 +25,10 @@ public class RandomNumber {
 
 			else if (random_int == input) {
 				System.out.println("You won the game! ");
-				count = 6;
+				count = 0;
 
 			}
-			count++;
+			count--;
 		}
 		user_scanner.close();
 	}
