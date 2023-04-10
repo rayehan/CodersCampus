@@ -8,13 +8,17 @@ public class RandomNumber {
 		int random_int = (int) Math.floor(Math.random() * (max_num - min_num + 1) + min_num);
 		//		System.out.println(random_int);
 
-		System.out.println("What is your first guess? ");
-		Scanner user_scanner = new Scanner(System.in); // accept input from user
-		String user_input = user_scanner.nextLine();
-		int input = Integer.parseInt(user_input); // convert string to integer
+//		System.out.println("What is your first guess? ");
+//		Scanner user_scanner = new Scanner(System.in); // accept input from user
+//		String user_input = user_scanner.nextLine();
+//		int input = Integer.parseInt(user_input); // convert string to integer
 
 		int count = 5;
 		while (count >= 0) {
+			System.out.println("What is your first guess? ");
+			Scanner user_scanner = new Scanner(System.in); // accept input from user
+			String user_input = user_scanner.nextLine();
+			int input = Integer.parseInt(user_input); // convert string to integer
 			if (random_int != input) {
 				System.out.printf("Try again, but remember you only have %d tries left! ", count).println();
 
@@ -29,8 +33,9 @@ public class RandomNumber {
 
 			}
 			count--;
+			user_scanner.close();
 		}
-		user_scanner.close();
+
 	}
 
 }
