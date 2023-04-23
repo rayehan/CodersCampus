@@ -13,24 +13,26 @@ public class RandomNumber {
 		String user_input = user_scanner.nextLine();
 		int input = Integer.parseInt(user_input); // convert string to integer
 
-		int count = 5;
+		int count = 4;
 		while (count >= 0) {
 			if (random_int != input) {
-				System.out.printf("Try again, but remember you only have %d tries left! ", count).println();
+				if (count > 0) {
+					System.out.printf("Try again, but remember you only have %d tries left! ", count).println();
+					System.out.println("What is your next guess? ");
+					user_scanner = new Scanner(System.in); // accept input from user
+					user_input = user_scanner.nextLine();
+					input = Integer.parseInt(user_input); //updating user input for next comparison
+				} else if (count == 0) {
+					System.out.println("Sorry! You've lost the game!");
 
-				System.out.println("What is your next guess? ");
-				user_scanner = new Scanner(System.in); // accept input from user
-				user_input = user_scanner.nextLine();
-			}
-
-			else if (random_int == input) {
+				}
+			} else if (random_int == input) {
 				System.out.println("You won the game! ");
 				count = 0;
-
 			}
 			count--;
 		}
 		user_scanner.close();
 	}
-
 }
+
