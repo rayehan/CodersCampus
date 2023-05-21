@@ -17,28 +17,31 @@ public class RandomNumber {
 
 		int count = 4;
 		while (count >= 0) {
-			if (random_int != input) {
-				if (count > 0) {
-					System.out.printf("Try again, but remember you only have %d tries left! ", count).println();
-					System.out.println("What is your next guess? ");
-					user_scanner = new Scanner(System.in); // accept input from user
-					user_input = user_scanner.nextLine();
-					input = Integer.parseInt(user_input); //updating user input for next comparison
-				} else if (count == 0) {
-					System.out.println("Sorry! You've lost the game!");
-
+			if (input >= min_num && input <= max_num) {
+				if (random_int != input) {
+					if (count > 0) {
+						System.out.printf("Try again, but remember you only have %d tries left! ", count).println();
+						System.out.println("What is your next guess? ");
+						user_scanner = new Scanner(System.in); // accept input from user
+						user_input = user_scanner.nextLine();
+						input = Integer.parseInt(user_input); //updating user input for next comparison
+					} else if (count == 0) {
+						System.out.println("Sorry! You've lost the game!");
+					}
+				} else if (random_int == input) {
+					System.out.println("You won the game! ");
+					count = 0;
 				}
-			} else if (random_int == input) {
-				System.out.println("You won the game! ");
-				count = 0;
+				count--;
 			}
-			count--;
+			else if (input < min_num || input > max_num ) {
+				System.out.println("Your guess is not between 1 and 100, please try again!");
+				user_scanner = new Scanner(System.in); // accept input from user
+				user_input = user_scanner.nextLine();
+				input = Integer.parseInt(user_input); //updating user input for next comparison
+			}
 		}
 		user_scanner.close();
 	}
 
     }
-
-
-
-
