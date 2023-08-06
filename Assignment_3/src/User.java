@@ -1,7 +1,13 @@
-public class UserInput {
+public class User {
     private String userName;
-    private String eMail;
+    private String name;
     private String passWord;
+
+    public User(String userName, String name, String passWord){
+        this.userName = userName;
+        this.name = name;
+        this.passWord = passWord;
+    };
 
     public void setuserName(String userName) {
         this.userName = userName;
@@ -11,12 +17,12 @@ public class UserInput {
         return userName;
     }
 
-    public void seteMail(String eMail) {
-        this.eMail = eMail;
+    public void setname(String name) {
+        this.name = name;
     }
 
-    public String geteMail() {
-        return eMail;
+    public String getname() {
+        return name;
     }
 
     public void setPassWord(String passWord) {

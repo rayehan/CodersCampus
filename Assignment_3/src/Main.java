@@ -1,15 +1,19 @@
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello! ");
+        try {
+            File data = new File("data.txt");
+            Scanner dataFile = new Scanner(data);
+        }
+        catch (FileNotFoundException e){
+            System.out.println("File not found!: " + e.getMessage());
+        }
+        User user = new User("John", "John Doe", "jd123");
 
-        UserInput name = new UserInput();
-        UserInput email = new UserInput();
-        UserInput password = new UserInput();
-        name.setuserName("John");
-        email.seteMail("test@test.com");
-        password.setPassWord("abcd123");
-        System.out.println(name.getuserName());
-        System.out.println(email.geteMail());
-        System.out.println(password.getPassWord());
+        System.out.println(user.getuserName());
+        System.out.println(user.getname());
+        System.out.println(user.getPassWord());
     }
 }
