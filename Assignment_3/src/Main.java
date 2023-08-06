@@ -2,6 +2,8 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 public class Main {
+
+    //split the string "String[] userInfo= fileLine.split(",");"
     public static void main(String[] args) {
         try {
             File data = new File("data.txt");
