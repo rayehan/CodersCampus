@@ -8,6 +8,11 @@ public class Main {
         try {
             File data = new File("data.txt");
             Scanner dataFile = new Scanner(data);
+            while (dataFile.hasNextLine()){
+                String dataFileData = String.valueOf(dataFile.hasNextLine());
+                System.out.println(dataFileData);
+            }
+            dataFile.close();
         }
         catch (FileNotFoundException e){
             System.out.println("File not found!: " + e.getMessage());
