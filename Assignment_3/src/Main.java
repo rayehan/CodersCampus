@@ -9,7 +9,7 @@ public class Main {
             File data = new File("data.txt");
             Scanner dataFile = new Scanner(data);
             while (dataFile.hasNextLine()){
-                String dataFileData = String.valueOf(dataFile.hasNextLine());
+                String dataFileData = dataFile.nextLine();
                 System.out.println(dataFileData);
             }
             dataFile.close();
