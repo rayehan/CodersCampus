@@ -17,8 +17,6 @@ public class Main {
                 String[] userInfo = dataFileData.split(",");
                 User user = new User(userInfo[0], userInfo[1], userInfo[2]); // uppercase "User" is the object and the lower case "user" is the instance typ or the object type
                 userArrayList.add(user);
-//                ArrayList<User> userArrayList = new ArrayList<User>();
-//                System.out.println(dataFileData);
                 System.out.println(Arrays.toString(userInfo));
             }
             dataFile.close();
@@ -29,23 +27,28 @@ public class Main {
         }
 
         Scanner userScanner = new Scanner(System.in);
-        System.out.println("Please enter your user name: ");
-        String userName = (userScanner.nextLine()).toLowerCase();
-        System.out.println("Please enter your password: ");
-        String userPasswd = userScanner.nextLine();
         int loginAttempts = 0;
         while (loginAttempts < 5){
+            System.out.println("Please enter your user name: ");
+            String userName = (userScanner.nextLine()).toLowerCase();
+            //System.out.println(userName);
+            System.out.println("Please enter your password: ");
+            String userPasswd = userScanner.nextLine();
+
             for (int i = 0; i < userArrayList.size(); i++){
                 String tempPassword = (userArrayList.get(i)).getPassWord();
                 String tempUserName = ((userArrayList.get(i)).getuserName()).toLowerCase();
+                //System.out.println(tempUserName);
+                if (tempPassword.equals(userPasswd) && tempUserName.equals(userName)){
+                    System.out.println("Welcome: " + (userArrayList.get(i)).getname());
+                    loginAttempts = 10;
+                    break;
+                }
             };
+            if (loginAttempts != 10){
+                System.out.println("Invalid login, please try again! ");
+            }
             loginAttempts +=1;
         }
-
-//        User user = new User("John", "John Doe", "jd123");
-
-//        System.out.println(user.getuserName());
-//        System.out.println(user.getname());
-//        System.out.println(user.getPassWord());
     }
 }
